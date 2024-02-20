@@ -24,6 +24,6 @@ class Event < ApplicationRecord
   end
 
   def welcome_send
-    UserMailer.welcome_email(self).deliver_now
+    EventMailer.welcome_email(self).deliver_now
   end
 end
