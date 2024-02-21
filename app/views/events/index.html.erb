@@ -1,14 +1,19 @@
+<div class="container">
 <p style="color: green"><%= notice %></p>
 
 <h1>Events</h1>
+<%= link_to "New event", new_event_path %>
 
-<div id="events">
+<div id="events", class="row">
   <% @events.each do |event| %>
+<div class="card col" style="width: 22.5rem;">
+	<img class="card-img-top" src="http://propeller.in/assets/images/profile-pic.png" alt="Card image cap">
     <%= render event %>
     <p>
       <%= link_to "Show this event", event %>
     </p>
+	</div>
   <% end %>
 </div>
 
-<%= link_to "New event", new_event_path %>
+
