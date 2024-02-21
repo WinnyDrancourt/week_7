@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  after_create :welcome_send
+  after_create :event_send
   belongs_to :admin, class_name: 'User'
   has_many :attentances
   has_many :stripe_customers, through: :attentances, source: :user
@@ -23,7 +23,7 @@ class Event < ApplicationRecord
     errors.add(:duration, 'Must be a multiple of five') unless (duration % 5).zero?
   end
 
-  def welcome_send
-    EventMailer.welcome_email(self).deliver_now
+  def event_send
+    EventMailer.event_email(self).deliver_now
   end
 end

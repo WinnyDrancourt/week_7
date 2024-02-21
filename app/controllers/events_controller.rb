@@ -68,8 +68,6 @@ class EventsController < ApplicationController
   end
 
   def check_admin
-    return if current_user != @event.admin.id
-
-    redirect_to root_path
+    nil if current_user != @event.admin.id
   end
 end

@@ -1,9 +1,9 @@
 class EventMailer < ApplicationMailer
   default from: ENV['MAILJET_DEFAULT_FROM']
 
-  def welcome_email(user)
-    @user = user
+  def event_email(params)
+    @email = Event.find(params[:id].to_i).admin.email
     @url = 'http://monsite.fr/login'
-    mail(to: @user.email, subject: 'Bienvenue chez nous !')
+    mail(to: @email, subject: 'Bienvenue chez nous !')
   end
 end
