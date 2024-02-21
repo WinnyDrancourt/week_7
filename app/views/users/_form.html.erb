@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div style="color: red">
@@ -30,4 +32,6 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+</div>
 
